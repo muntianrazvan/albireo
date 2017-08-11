@@ -14,15 +14,9 @@
 {{! The big featured header on the homepage, with the site logo and description }}
 <header id="site-head">
     <div id="site-head-content" class="inner">
-        {{#if @blog.logo}}<a id="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="Blog Logo" /></a>{{/if}}
-        <h1 class="blog-title">{{tag.name}}</h1>
-        <h2 class="blog-description">Post collection</h2>
+        <h1 class="blog-title">Tag: {{tag.name}}</h1>
     </div>
 </header>
-
-<nav class="main-nav overlay clearfix">
-    <a class="back-button icon-arrow-left" href="{{@blog.url}}">Home</a>
-</nav>
 
 {{! The main content area on the homepage }}
 <main class="content" role="main">
@@ -31,4 +25,3 @@
     {{> "loop"}}
 
 </main>
-

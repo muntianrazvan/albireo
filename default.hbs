@@ -18,13 +18,34 @@
     {{{block "meta"}}}
 
     {{! Styles'n'Scripts }}
+    <link href="https://fonts.googleapis.com/css?family=Cardo|PT+Serif:700&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700|Droid+Serif:400,700|Pacifico' rel='stylesheet' type='text/css'>
 
     {{! Ghost outputs important style and meta data with this tag }}
     {{ghost_head}}
 </head>
 <body class="{{body_class}}">
+
+    <header class="author-profile">
+        <div class="inner">
+            {{#if @blog.logo}}
+            <figure class="author-image">
+                <div class="img" style="background-image: url({{@blog.logo}})"><span class="hidden">{{name}}'s Picture</span></div>
+            </figure>
+            {{/if}}
+            <h1 class="blog-title">{{@blog.title}}</h1>
+            <h2 class="author-bio">{{@blog.description}}</h2>
+            <ul class="author-meta">
+                <li><i class="icon-globe"></i>Cluj Napoca, Romania</li>
+                <li><i class="icon-twitter" aria-hidden="true"></i><a href="{{twitter_url @blog.twitter}}" target="_blank">@razvanmuntian</a></li>
+                <li><i class="icon-code"></i><a href="https://muntianrazvan.github.io" target="_blank">muntianrazvan.github.io</a></li>
+            </ul>
+
+            {{#if @blog.navigation}}
+                {{navigation}}
+            {{/if}}
+        </div>
+    </header>
 
     {{! Everything else gets inserted here }}
     {{{body}}}
@@ -32,8 +53,12 @@
     <footer class="site-footer">
         <div class="inner">
              <section class="copyright">All content copyright <a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}</section>
-             <section class="poweredby">Designed &amp; Developed by <a href="http://www.marcosantonocito.com">Marco Santonocito</a>. Proudly published with <a class="icon-ghost" href="http://ghost.org">Ghost</a>.</section>
-             <section class="subscribe"><a class="icon-rss" href="{{@blog.url}}/rss/"></a></section>
+             <section class="subscribe">
+                 <a class="icon-rss" href="{{@blog.url}}/rss/" target="_blank"></a>
+                 <a class="icon-twitter" href="{{twitter_url @blog.twitter}}" target="_blank"></a>
+                 <a class="icon-github" href="https://github.com/muntianrazvan" target="_blank"></a>
+                 <a class="icon-link" href="https://muntianrazvan.github.io" target="_blank"></a>
+             </section>
         </div>
     </footer>
 
